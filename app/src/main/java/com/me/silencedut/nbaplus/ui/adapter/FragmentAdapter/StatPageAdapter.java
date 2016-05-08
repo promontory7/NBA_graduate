@@ -8,9 +8,6 @@ import com.me.silencedut.nbaplus.ui.fragment.playersort.BarFragment;
 
 import java.util.List;
 
-/**
- * Created by SlienceDut on 2015/12/16.
- */
 public class StatPageAdapter extends FragmentStatePagerAdapter {
 
     private List<BarFragment> mBarFragments;

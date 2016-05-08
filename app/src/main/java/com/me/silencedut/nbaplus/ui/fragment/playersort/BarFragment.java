@@ -30,9 +30,6 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 
-/**
- * Created by SilenceDut on 2015/12/16.
- */
 public class BarFragment extends BaseFragment {
 
     @Bind(R.id.cardItem)
@@ -117,7 +114,7 @@ public class BarFragment extends BaseFragment {
                 mShowDaily=true;
                 dismissChart(0,mStatChart,mChange);
             }else {
-                showChart(0, mStatChart, mChange); //first in,init barchart
+                showChart(0, mStatChart, mChange);
             }
         }
     }
@@ -178,7 +175,6 @@ public class BarFragment extends BaseFragment {
         }
     }
 
-
     /**
      * Show CardView play button
      * @param btn    Play button
@@ -191,8 +187,6 @@ public class BarFragment extends BaseFragment {
             btn.setVisibility(View.VISIBLE);
     }
 
-    
-    
     /**
      * Dismiss CardView play button
      * @param btn    Play button

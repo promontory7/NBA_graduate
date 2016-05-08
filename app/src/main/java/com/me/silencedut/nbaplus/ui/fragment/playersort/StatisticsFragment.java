@@ -17,14 +17,14 @@ import com.me.silencedut.nbaplus.ui.wigdets.RhythmAdapter;
 import com.me.silencedut.nbaplus.ui.wigdets.RhythmLayout;
 import com.me.silencedut.nbaplus.utils.AnimatorUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 
-/**
- * Created by SilenceDut on 2015/12/16.
- */
 public class StatisticsFragment extends ToorbarBaseFragment implements View.OnClickListener{
     @Bind(R.id.rl_playersort)
     View rl_playersort;
@@ -68,12 +68,10 @@ public class StatisticsFragment extends ToorbarBaseFragment implements View.OnCl
 
             @Override
             public void onPageSelected(int position) {
-
             }
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
         mRefresh.setOnClickListener(this);
@@ -90,7 +88,6 @@ public class StatisticsFragment extends ToorbarBaseFragment implements View.OnCl
     }
     // no need initdata temporary
     private void initData() {
-
         AppService.getInstance().initPerStat(getTaskId(), sStatKinds[0]);
     }
 
@@ -104,14 +101,12 @@ public class StatisticsFragment extends ToorbarBaseFragment implements View.OnCl
             mCurrentPosition=((RhythmPositonEvent) event).getPosition();
             mViewPager.setCurrentItem(mCurrentPosition,true);
         }else if(event instanceof StatEvent ){
-
             if(mAnimator!=null) {
                 mAnimator.cancel();
                 mAnimator=null;
             }
         }
     }
-
 
     @Override
     public void onClick(View v) {

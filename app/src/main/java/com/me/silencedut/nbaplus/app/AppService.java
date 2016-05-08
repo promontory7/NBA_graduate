@@ -22,35 +22,34 @@ import de.greenrobot.event.EventBus;
 import rx.subscriptions.CompositeSubscription;
 
 
-
 /**
  * Created by SilenceDut on 2015/11/28.
  */
 public class AppService {
-    private static final AppService NBAPLUS_SERVICE=new AppService();
+    private static final AppService NBAPLUS_SERVICE = new AppService();
     private static Gson sGson;
-    private static EventBus sBus ;
+    private static EventBus sBus;
     private static DBHelper sDBHelper;
     private static NbaplusAPI sNbaplusApi;
     private static NewsDetileAPI sNewsDetileApi;
     private static ExecutorService sSingleThreadExecutor;
-    private Map<Integer,CompositeSubscription> mCompositeSubByTaskId;
+    private Map<Integer, CompositeSubscription> mCompositeSubByTaskId;
     private Handler mIoHandler;
 
-    private AppService(){}
+    private AppService() {
+    }
 
     public void initService() {
         sBus = EventBus.getDefault();
-        sGson=new Gson();
-        mCompositeSubByTaskId=new HashMap<Integer,CompositeSubscription>();
-        //sSingleThreadExecutor= Executors.newSingleThreadExecutor();
+        sGson = new Gson();
+        mCompositeSubByTaskId = new HashMap<Integer, CompositeSubscription>();
         backGroundInit();
     }
 
     private void backGroundInit() {
         HandlerThread ioThread = new HandlerThread("IoThread");
         ioThread.start();
-        mIoHandler= new Handler(ioThread.getLooper());
+        mIoHandler = new Handler(ioThread.getLooper());
         mIoHandler.post(new Runnable() {
             @Override
             public void run() {
@@ -59,22 +58,12 @@ public class AppService {
                 sDBHelper = DBHelper.getInstance(App.getContext());
             }
         });
-//  ThreadExecutor is not necessary currently
-
-//        sSingleThreadExecutor.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                sNbaplus = NbaplusFactory.getNbaplus();
-//                sNewsDetileApi = NbaplusFactory.getNewsDetileInstance();
-//                sDBHelper = DBHelper.getInstance(App.getContext());
-//            }
-//        });
-
     }
+
 
     public void addCompositeSub(int taskId) {
         CompositeSubscription compositeSubscription;
-        if(mCompositeSubByTaskId.get(taskId)==null) {
+        if (mCompositeSubByTaskId.get(taskId) == null) {
             compositeSubscription = new CompositeSubscription();
             mCompositeSubByTaskId.put(taskId, compositeSubscription);
         }
@@ -82,46 +71,46 @@ public class AppService {
 
     public void removeCompositeSub(int taskId) {
         CompositeSubscription compositeSubscription;
-        if(mCompositeSubByTaskId!=null&& mCompositeSubByTaskId.get(taskId)!=null){
-            compositeSubscription= mCompositeSubByTaskId.get(taskId);
+        if (mCompositeSubByTaskId != null && mCompositeSubByTaskId.get(taskId) != null) {
+            compositeSubscription = mCompositeSubByTaskId.get(taskId);
             compositeSubscription.unsubscribe();
             mCompositeSubByTaskId.remove(taskId);
         }
     }
 
     private CompositeSubscription getCompositeSubscription(int taskId) {
-        CompositeSubscription compositeSubscription ;
-        if(mCompositeSubByTaskId.get(taskId)==null) {
+        CompositeSubscription compositeSubscription;
+        if (mCompositeSubByTaskId.get(taskId) == null) {
             compositeSubscription = new CompositeSubscription();
             mCompositeSubByTaskId.put(taskId, compositeSubscription);
-        }else {
-            compositeSubscription= mCompositeSubByTaskId.get(taskId);
+        } else {
+            compositeSubscription = mCompositeSubByTaskId.get(taskId);
         }
         return compositeSubscription;
     }
 
 
-    public void initNews(int taskId,String type) {
+    public void initNews(int taskId, String type) {
         getCompositeSubscription(taskId).add(RxNews.initNews(type));
     }
 
-    public void updateNews(int taskId,String type) {
+    public void updateNews(int taskId, String type) {
         getCompositeSubscription(taskId).add(RxNews.updateNews(type));
     }
 
-    public void loadMoreNews(int taskId,String type,String newsId) {
+    public void loadMoreNews(int taskId, String type, String newsId) {
         getCompositeSubscription(taskId).add(RxNews.loadMoreNews(type, newsId));
     }
 
-    public void getNewsDetile(int taskId,String date,String detielId) {
+    public void getNewsDetile(int taskId, String date, String detielId) {
         getCompositeSubscription(taskId).add(RxNews.getNewsDetile(date, detielId));
     }
 
-    public void initPerStat(int taskId,String  statKind) {
+    public void initPerStat(int taskId, String statKind) {
         getCompositeSubscription(taskId).add(RxStats.initStat(statKind));
     }
 
-    public void getPerStat(int taskId,String ...statKinds) {
+    public void getPerStat(int taskId, String... statKinds) {
         getCompositeSubscription(taskId).add(RxStats.getPerStat(statKinds));
     }
 
@@ -129,7 +118,7 @@ public class AppService {
         getCompositeSubscription(taskId).add(RxTeamSort.getTeams());
     }
 
-    public void getGames(int taskId,String date) {
+    public void getGames(int taskId, String date) {
         getCompositeSubscription(taskId).add(RxGames.getTeams(date));
     }
 
@@ -158,7 +147,7 @@ public class AppService {
         return sGson;
     }
 
-    public static ExecutorService getSingleThreadExecutor(){
+    public static ExecutorService getSingleThreadExecutor() {
         return sSingleThreadExecutor;
     }
 

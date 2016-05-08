@@ -2,9 +2,7 @@ package com.me.silencedut.nbaplus.event;
 
 import com.me.silencedut.nbaplus.data.Constant;
 
-/**
- * Created by SilenceDut on 2015/12/18.
- */
+
 public class StatEvent extends Event {
     private String mStatKind;
     private String[][] mLables;

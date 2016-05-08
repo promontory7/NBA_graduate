@@ -21,9 +21,9 @@ import java.util.Map;
 public class MainActivity extends BaseActivity {
     private DrawerFragment mNavigationFragment;
     private BaseFragment mCurrentFragment;
-    private int mCurrentDrawId=R.string.news;
-    private Map<String,BaseFragment> mBaseFragmentByName= new HashMap<>();
-    private Map<Integer,String> mFragmentNameByDrawerId = new HashMap<>();
+    private int mCurrentDrawId = R.string.news;
+    private Map<String, BaseFragment> mBaseFragmentByName = new HashMap<>();
+    private Map<Integer, String> mFragmentNameByDrawerId = new HashMap<>();
 
 
     @Override
@@ -40,28 +40,27 @@ public class MainActivity extends BaseActivity {
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.main_drawer));
         initDrawerMap();
-        mCurrentFragment= getFragment(mFragmentNameByDrawerId.get(R.string.news));
+        mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(R.string.news));
         transactionSupportFragment(mCurrentFragment);
     }
 
     public void onEventMainThread(DrawerClickEvent drawerClickEvent) {
-        if(Constant.Result.FAIL.equals(drawerClickEvent.getEventResult())||drawerClickEvent.getDrawId()==mCurrentDrawId) {
+        if (Constant.Result.FAIL.equals(drawerClickEvent.getEventResult()) || drawerClickEvent.getDrawId() == mCurrentDrawId) {
             return;
         }
-        mCurrentDrawId=drawerClickEvent.getDrawId();
-        if(mCurrentDrawId==R.string.statistics) {
-            mCurrentFragment=StatisticsFragment.newInstance();
-        }else {
+        mCurrentDrawId = drawerClickEvent.getDrawId();
+        if (mCurrentDrawId == R.string.statistics) {
+            mCurrentFragment = StatisticsFragment.newInstance();
+        } else {
             mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(mCurrentDrawId));
         }
         transactionSupportFragment(mCurrentFragment);
     }
 
 
-
     private void initDrawerMap() {
-        mFragmentNameByDrawerId.put(R.string.news,MainFragment.class.getName());
-        mFragmentNameByDrawerId.put(R.string.blog,BlogFragment.class.getName());
+        mFragmentNameByDrawerId.put(R.string.news, MainFragment.class.getName());
+        mFragmentNameByDrawerId.put(R.string.blog, BlogFragment.class.getName());
         mFragmentNameByDrawerId.put(R.string.sort, TeamSortFragment.class.getName());
         mFragmentNameByDrawerId.put(R.string.gameDate, GamesFragment.class.getName());
 
@@ -70,13 +69,13 @@ public class MainActivity extends BaseActivity {
 
     private BaseFragment getFragment(String fragmentName) {
         BaseFragment baseFragment = mBaseFragmentByName.get(fragmentName);
-        if(mBaseFragmentByName.get(fragmentName)==null) {
+        if (mBaseFragmentByName.get(fragmentName) == null) {
             try {
-                baseFragment=(BaseFragment)Class.forName(fragmentName).newInstance();
+                baseFragment = (BaseFragment) Class.forName(fragmentName).newInstance();
             } catch (Exception e) {
-                baseFragment=MainFragment.newInstance();
+                baseFragment = MainFragment.newInstance();
             }
-            mBaseFragmentByName.put(fragmentName,baseFragment);
+            mBaseFragmentByName.put(fragmentName, baseFragment);
         }
         return baseFragment;
     }

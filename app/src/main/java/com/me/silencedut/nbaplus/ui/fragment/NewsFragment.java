@@ -3,6 +3,7 @@ package com.me.silencedut.nbaplus.ui.fragment;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -43,7 +44,8 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements O
     protected void initViews() {
         super.initViews();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mNewsListView.getContext());
-        mNewsListView.setLayoutManager(linearLayoutManager);
+        StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        mNewsListView.setLayoutManager(staggeredGridLayoutManager);
         mNewsListView.addOnScrollListener(new RecyclerViewLoadMoreListener(linearLayoutManager, this, 0));
         mNewsListView.setOnTouchListener(
                 new View.OnTouchListener() {

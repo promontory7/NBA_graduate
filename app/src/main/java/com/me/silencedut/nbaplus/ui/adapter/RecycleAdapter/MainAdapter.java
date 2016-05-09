@@ -38,7 +38,7 @@ public class MainAdapter extends LoadAdapter {
             case MOREPIC:
                 viewHolder=new MorePicNewsViewHolder(mInflater.inflate(R.layout.item_fragment_news_morepic, parent, false));break;
             case NORMAL:
-                viewHolder= new NomalNewsViewHolder(mInflater.inflate(R.layout.item_fragment_news_normal, parent, false));break;
+                viewHolder= new NomalNewsViewHolder(mInflater.inflate(R.layout.item_fragment_news_normal_2, parent, false));break;
             default:
                 break;
         }

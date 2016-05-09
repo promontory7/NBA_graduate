@@ -15,9 +15,6 @@ import com.me.silencedut.nbaplus.utils.NumericalUtil;
 
 import butterknife.Bind;
 
-/**
- * Created by SilenceDut on 2015/11/28.
- */
 public class MainFragment extends NewsFragment{
 
     private static final int ANIM_DURATION_TOOLBAR = 300;

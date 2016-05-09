@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/shotView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_4dp"
+    android:background="@drawable/drawer_news_background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:id="@+id/newsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary_text"
+        android:layout_margin="2dp"
+        android:textSize="12sp"
+        />
+    <ImageView
+        android:layout_below="@+id/newsTitle"
+        android:id="@+id/newsImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:scaleType="matrix"
+        />
+
+    <TextView
+        android:id="@+id/newsTime"
+        android:layout_margin="1dp"
+        android:layout_below="@+id/newsImage"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secondary_text"
+        android:textSize="11sp"
+        />
+    <View
+        android:id="@+id/divier"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/margin_8dp"
+        android:layout_marginRight="@dimen/margin_8dp"
+        android:layout_height="@dimen/item_divider_line"
+        android:background="@color/divider"/>
+</RelativeLayout>

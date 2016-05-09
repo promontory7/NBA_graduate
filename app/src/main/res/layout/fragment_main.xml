@@ -16,10 +16,11 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_news"
+            android:background="@color/grey300"
             android:scrollbars="vertical"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
     </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.design.widget.CoordinatorLayout>
-    <!--https://guides.codepath.com/android/Floating-Action-Buttons-->

@@ -1,5 +1,4 @@
-<com.me.silencedut.nbaplus.ui.wigdets.SwipeBackLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.me.silencedut.nbaplus.ui.wigdets.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipBackLayout"
     android:layout_width="match_parent"
@@ -18,36 +17,22 @@
             android:id="@+id/aboutView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <include layout="@layout/appbar_toolbar" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:background="@color/colorPrimary"
-                android:padding="@dimen/margin_12dp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/margin_12dp">
 
-                <ImageView
-                    android:id="@+id/titleImage"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/applink" />
-                <TextView
-                    android:id="@+id/tv_version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_8dp"
-                    android:textColor="@color/icons"
-                    android:textSize="14sp"
-                    />
-             </LinearLayout>
 
-             <LinearLayout
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -58,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:text="@string/about_introduce"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -68,7 +53,7 @@
                     android:text="@string/introduce"
                     android:textColor="@color/secondary_text"
                     android:textIsSelectable="true"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,40 +61,22 @@
                     android:layout_marginBottom="12dp"
                     android:layout_marginTop="12dp"
                     android:text="@string/contact_to_me"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent" />
+
                 <TextView
-                     android:id="@+id/email"
-                     android:layout_width="match_parent"
-                     android:layout_height="@dimen/navigation_drawer_item_height"
-                     android:drawableLeft="@mipmap/drawer_icon_advice"
-                     android:background="@drawable/bg_card"
-                     android:drawablePadding="@dimen/margin_8dp"
-                     android:paddingLeft="@dimen/margin_8dp"
-                     android:gravity="center_vertical"
-                     android:text="@string/email"
-                     android:textColor="@color/secondary_text"
-                     android:textSize="16sp"
-                  />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/notices"
-                    android:textColor="@color/colorAccent"/>
-                <TextView
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/navigation_drawer_item_height"
-                    android:drawableLeft="@mipmap/notice"
                     android:background="@drawable/bg_card"
+                    android:drawableLeft="@mipmap/drawer_icon_advice"
                     android:drawablePadding="@dimen/margin_8dp"
-                    android:paddingLeft="@dimen/margin_8dp"
                     android:gravity="center_vertical"
-                    android:text="@string/open_source"
-                    android:onClick="onMultipleClick"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="14sp"
-                    />
+                    android:paddingLeft="@dimen/margin_8dp"
+                    android:text="@string/email"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="16sp" />
+
+
             </LinearLayout>
 
         </LinearLayout>

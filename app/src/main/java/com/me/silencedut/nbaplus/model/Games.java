@@ -29,7 +29,7 @@ public class Games {
         return games;
     }
 
-    public static class GamesEntity {
+    public static class GamesEntity  {
         private String status;
         private String stateUrl;
         private String rightTeam;
@@ -128,6 +128,23 @@ public class Games {
 
         public int getType() {
             return type;
+        }
+
+        @Override
+        public String toString() {
+            return "GamesEntity{" +
+                    "status='" + status + '\'' +
+                    ", stateUrl='" + stateUrl + '\'' +
+                    ", rightTeam='" + rightTeam + '\'' +
+                    ", statusText='" + statusText + '\'' +
+                    ", statusUrl='" + statusUrl + '\'' +
+                    ", leftTeam='" + leftTeam + '\'' +
+                    ", leftScore='" + leftScore + '\'' +
+                    ", rightScore='" + rightScore + '\'' +
+                    ", stateText='" + stateText + '\'' +
+                    ", date='" + date + '\'' +
+                    ", type=" + type +
+                    '}';
         }
     }
 }

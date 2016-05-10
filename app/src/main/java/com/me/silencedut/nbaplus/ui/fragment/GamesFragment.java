@@ -3,6 +3,7 @@ package com.me.silencedut.nbaplus.ui.fragment;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ public class GamesFragment extends SwipeRefreshBaseFragment {
     @Bind(R.id.rv_news)
     RecyclerView mGamesListView;
     private GamesAdapter mGamesAdapter;
+
 
     private String mDate;
     private String mDateToday =DateFormatter.formatDate("yyyy-MM-dd");
@@ -69,9 +71,9 @@ public class GamesFragment extends SwipeRefreshBaseFragment {
         }
         mGamesEntity.clear();
         mGamesEntity.addAll(gamesEvent.getAllGames().getGames());
+        Log.e("games",mGamesEntity.size()+mGamesEntity.toString());
         mGamesAdapter.notifyDataSetChanged();
     }
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);

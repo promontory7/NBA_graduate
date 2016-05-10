@@ -66,13 +66,7 @@ public class DrawerAdapter extends RecyclerView.Adapter<DrawerAdapter.DrawerItem
         }
 
         public void update(int position) {
-            if (position == TOPVIEW_POSITION) {
-                top_divider.setVisibility(View.VISIBLE);
-            }
 
-            if (position == BOTTOMVIEW_POSITION) {
-                bottom_divider.setVisibility(View.VISIBLE);
-            }
             iconIV.setImageResource(icon_id[position]);
             nameTV.setText(name_id[position]);
 

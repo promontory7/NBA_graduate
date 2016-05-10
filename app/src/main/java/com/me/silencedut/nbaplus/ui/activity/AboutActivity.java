@@ -13,13 +13,10 @@ import com.me.silencedut.nbaplus.utils.AppUtils;
 
 import butterknife.Bind;
 import de.psdev.licensesdialog.LicensesDialog;
-/**
- * Created by SilenceDut on 2015/9/28.
- */
-public class AboutActivity extends SwipeBackActivity  implements RevealBackgroundView.OnStateChangeListener{
 
-    @Bind(R.id.tv_version)
-    TextView mVersionTextView;
+public class AboutActivity extends SwipeBackActivity implements RevealBackgroundView.OnStateChangeListener {
+
+
     @Bind(R.id.revealBackgroundView)
     RevealBackgroundView mRevealBackgroundView;
     @Bind(R.id.aboutView)
@@ -41,7 +38,7 @@ public class AboutActivity extends SwipeBackActivity  implements RevealBackgroun
     @Override
     void setTitle() {
         mToolBar.setTitle(getResources().getString(R.string.about));
-        mVersionTextView.setText("Version " + AppUtils.getVersionName(this));
+
     }
 
     @Override
@@ -49,19 +46,10 @@ public class AboutActivity extends SwipeBackActivity  implements RevealBackgroun
         return R.layout.activity_about;
     }
 
-
-    public void onMultipleClick(final View view) {
-        new LicensesDialog.Builder(this)
-                .setNotices(R.raw.notices)
-                .setIncludeOwnLicense(true)
-                .build()
-                .showAppCompat();
-    }
-
     private void setupRevealBackground() {
         mRevealBackgroundView.setOnStateChangeListener(this);
         int screenWidth = this.getWindowManager().getDefaultDisplay().getWidth();
-        final int[] startingLocation = {screenWidth,0};
+        final int[] startingLocation = {screenWidth, 0};
         mRevealBackgroundView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
@@ -78,7 +66,7 @@ public class AboutActivity extends SwipeBackActivity  implements RevealBackgroun
 
         if (RevealBackgroundView.STATE_FINISHED == state) {
             aboutView.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             aboutView.setVisibility(View.INVISIBLE);
         }
     }

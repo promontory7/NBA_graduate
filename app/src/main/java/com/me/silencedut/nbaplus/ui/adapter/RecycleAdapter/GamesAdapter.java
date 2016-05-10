@@ -25,15 +25,17 @@ import butterknife.ButterKnife;
  * Created by SilenceDut on 2015/12/26.
  */
 public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHolder> {
-    private final static Map<String,Integer> sTeamIconMap= Constant.getTeamIcons();
+    private final static Map<String, Integer> sTeamIconMap = Constant.getTeamIcons();
     private List<Games.GamesEntity> mGames;
     protected Context mContext;
     protected LayoutInflater mInflater;
-    private static final int GAMES_DATE=0;
-    public GamesAdapter(Context context,List<Games.GamesEntity> teams) {
+    private static final int GAMES_DATE = 0;
+
+
+    public GamesAdapter(Context context, List<Games.GamesEntity> teams) {
         super();
         this.mContext = context;
-        this.mGames=teams;
+        this.mGames = teams;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -45,10 +47,10 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
     @Override
     public GamesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         GamesViewHolder gamesViewHolder;
-        if(viewType==GAMES_DATE) {
-            gamesViewHolder=new GameTitleViewHolder(mInflater.inflate(R.layout.item_fragment_teamsort_title,parent,false));
-        }else {
-            gamesViewHolder=new GameEntutyViewHolder(mInflater.inflate(R.layout.item_fragment_games,parent,false));
+        if (viewType == GAMES_DATE) {
+            gamesViewHolder = new GameTitleViewHolder(mInflater.inflate(R.layout.item_fragment_teamsort_title, parent, false));
+        } else {
+            gamesViewHolder = new GameEntutyViewHolder(mInflater.inflate(R.layout.item_fragment_games, parent, false));
         }
 
         return gamesViewHolder;
@@ -61,7 +63,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 
     @Override
     public int getItemCount() {
-        return mGames==null?0:mGames.size();
+        return mGames == null ? 0 : mGames.size();
     }
 
     abstract class GamesViewHolder extends RecyclerView.ViewHolder {
@@ -107,6 +109,7 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
         @Bind(R.id.status_indicate)
         View statusIndicate;
         private Games.GamesEntity mGameEntity;
+
         public GameEntutyViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
@@ -116,17 +119,17 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
 
         @Override
         void updateItem(int position) {
-            mGameEntity=mGames.get(getLayoutPosition());
-            if(mGameEntity.getStateText()!="") {
+            mGameEntity = mGames.get(getLayoutPosition());
+            if (mGameEntity.getStateText() != "") {
                 statusIndicate.setVisibility(View.VISIBLE);
-                if("已结束".equals(mGameEntity.getStatus())) {
+                if ("已结束".equals(mGameEntity.getStatus())) {
                     statusIndicate.setBackgroundColor(Color.parseColor("#448AFF"));
-                }else {
+                } else {
                     statusIndicate.setBackgroundColor(Color.parseColor("#f44336"));
                 }
                 statsTv.setVisibility(View.VISIBLE);
                 statsTv.setText(mGameEntity.getStateText());
-            }else {
+            } else {
                 statusIndicate.setVisibility(View.GONE);
                 statsTv.setVisibility(View.GONE);
             }
@@ -142,20 +145,18 @@ public class GamesAdapter extends RecyclerView.Adapter<GamesAdapter.GamesViewHol
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.stats:
-                    new FinestWebView.Builder((Activity)mContext)
+                    new FinestWebView.Builder((Activity) mContext)
                             .gradientDivider(false)
                             .show(mGameEntity.getStateUrl());
                     break;
                 default:
-                    new FinestWebView.Builder((Activity)mContext)
+                    new FinestWebView.Builder((Activity) mContext)
                             .gradientDivider(false)
                             .show(mGameEntity.getStatusUrl());
                     break;
             }
         }
     }
-
-
 
 
 }

@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/navigation_drawer"
         android:name="com.me.silencedut.nbaplus.ui.fragment.DrawerFragment"
-        android:layout_width="match_parent"
+        android:layout_width="220dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         />

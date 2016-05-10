@@ -45,7 +45,12 @@ public abstract class NewsFragment extends SwipeRefreshBaseFragment implements O
         super.initViews();
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mNewsListView.getContext());
         StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-        mNewsListView.setLayoutManager(staggeredGridLayoutManager);
+        if (getTitle()==R.string.news){
+            mNewsListView.setLayoutManager(staggeredGridLayoutManager);
+        }else {
+            mNewsListView.setLayoutManager(linearLayoutManager);
+        }
+
         mNewsListView.addOnScrollListener(new RecyclerViewLoadMoreListener(linearLayoutManager, this, 0));
         mNewsListView.setOnTouchListener(
                 new View.OnTouchListener() {

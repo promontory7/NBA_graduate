@@ -81,4 +81,5 @@ dependencies {
     releaseCompile otherDependencies.leakcanary_release
     compile files('libs/joda-time-2.8.2.jar')
     compile project(':chartlibrary')
+    testCompile 'junit:junit:4.12'
 }

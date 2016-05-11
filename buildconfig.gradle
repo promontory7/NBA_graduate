@@ -5,8 +5,8 @@ ext {
             AndridMinSdkVersion : 15,
             AndroidTargetSdkVersion : 23,
             AndroidCompileSdkVersion : 23,
-            applicationId : "me.silencedut.nbaplus",
-            versionCode:10,
+            applicationId : "me.zhuchudong.nbaplus",
+            versionCode:1,
             versionName:"0.0.2"
     ]
 

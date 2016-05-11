@@ -1,4 +1,4 @@
-<com.me.silencedut.nbaplus.ui.wigdets.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.me.zhuchudong.nba.ui.wigdets.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipBackLayout"
     android:layout_width="match_parent"
@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.me.silencedut.nbaplus.ui.wigdets.RevealBackgroundView
+        <com.me.zhuchudong.nba.ui.wigdets.RevealBackgroundView
             android:id="@+id/revealBackgroundView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -96,4 +96,4 @@
 
         </LinearLayout>
     </RelativeLayout>
-</com.me.silencedut.nbaplus.ui.wigdets.SwipeBackLayout>
+</com.me.zhuchudong.nba.ui.wigdets.SwipeBackLayout>

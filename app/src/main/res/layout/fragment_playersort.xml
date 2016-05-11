@@ -30,7 +30,7 @@
         android:layout_above="@+id/box_rhythm"
         android:layout_marginTop="?attr/actionBarSize"
         />
-    <com.me.silencedut.nbaplus.ui.wigdets.RhythmLayout
+    <com.me.zhuchudong.nba.ui.wigdets.RhythmLayout
         android:id="@+id/box_rhythm"
         android:layout_width="match_parent"
         android:layout_height="@dimen/rhythm_layout_height"
@@ -40,6 +40,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal" />
-    </com.me.silencedut.nbaplus.ui.wigdets.RhythmLayout>
+    </com.me.zhuchudong.nba.ui.wigdets.RhythmLayout>
 
 </RelativeLayout>

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.me.silencedut.nbaplus" >
+    package="com.me.silencedut.nbaplus">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 
     <application
         android:name=".app.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/myteam"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".ui.activity.MainActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTask"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,27 +31,21 @@
 
         <activity
             android:name=".ui.activity.NewsDetileActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.TransparentActivity"
-            >
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity"></activity>
 
         <activity
             android:name=".ui.activity.AboutActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.TransparentActivity"
-            >
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity"></activity>
 
         <activity
             android:name=".ui.activity.SettingsActivity"
-            android:screenOrientation="portrait"
             android:launchMode="singleTask"
-            android:theme="@style/AppTheme.TransparentActivity"
-            >
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity"></activity>
 
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
@@ -59,7 +53,9 @@
             android:screenOrientation="sensor"
             android:theme="@style/FinestWebViewTheme" />
 
-        <meta-data android:value="3cc3405d811293a22ec506387c452a3d" android:name="BUG_HD_SDK_GENERAL_KEY" />
+        <meta-data
+            android:name="BUG_HD_SDK_GENERAL_KEY"
+            android:value="3cc3405d811293a22ec506387c452a3d" />
 
     </application>
 

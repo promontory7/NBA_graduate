@@ -1,5 +1,8 @@
 package com.me.silencedut.nbaplus.ui.activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.FrameLayout;
@@ -42,6 +45,17 @@ public class MainActivity extends BaseActivity {
         initDrawerMap();
         mCurrentFragment = getFragment(mFragmentNameByDrawerId.get(R.string.news));
         transactionSupportFragment(mCurrentFragment);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (!(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
+                        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    }
+                }
+            }
+        }).start();
     }
 
     public void onEventMainThread(DrawerClickEvent drawerClickEvent) {

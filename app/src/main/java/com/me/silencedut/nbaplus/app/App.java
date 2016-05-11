@@ -2,6 +2,8 @@ package com.me.silencedut.nbaplus.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -21,7 +23,6 @@ public class App extends Application {
         mRefWatcher = LeakCanary.install(this);
         sContext = getApplicationContext();
         AppService.getInstance().initService();
-
     }
     public static Context getContext() {
         return sContext;

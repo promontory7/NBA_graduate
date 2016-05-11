@@ -6,9 +6,7 @@ import android.os.Environment;
 import android.util.Log;
 
 import java.io.File;
-/**
- * Created by SlienceDut on 2015/12/15.
- */
+
 public class DataClearManager {
 
     private static final String newsCacheurl = Environment.getExternalStorageDirectory().getAbsolutePath() + "nbaplus";
@@ -16,6 +14,7 @@ public class DataClearManager {
 
     /**
      * 清除本应用内部缓存
+     *
      * @param context
      */
     public static void cleanInternalCache(Context context) {
@@ -23,7 +22,7 @@ public class DataClearManager {
     }
 
     public static double getInternalCacheSize(Context context) {
-        Log.d("getApplicationDataSize", context.getCacheDir()+"kkkkk");
+        Log.d("getApplicationDataSize", context.getCacheDir() + "kkkkk");
         return getDirSize(context.getCacheDir());
     }
 
@@ -44,6 +43,7 @@ public class DataClearManager {
 
     /**
      * 清除本应用sharedPreference保存数据
+     *
      * @param context
      */
     public static void cleanSharedPreference(Context context) {
@@ -51,13 +51,14 @@ public class DataClearManager {
                 + context.getPackageName() + "/shared_prefs"));
     }
 
-    public static double getSharedSize (Context context) {
+    public static double getSharedSize(Context context) {
         return getDirSize(new File("/data/data/"
                 + context.getPackageName() + "/shared_prefs"));
     }
 
     /**
      * 清除本应用数据库
+     *
      * @param context
      * @param dbName
      */
@@ -92,6 +93,7 @@ public class DataClearManager {
 
     /**
      * 计算外部cache大小
+     *
      * @param context
      * @return
      */
@@ -134,11 +136,12 @@ public class DataClearManager {
     }
 
     public static void cleanApplicationData(Context context) {
-        cleanApplicationData(context,newsCacheurl);
+        cleanApplicationData(context, newsCacheurl);
     }
 
     /**
      * 获得删除数据的大小，保存两位有效数字，并且返回字符串
+     *
      * @param context
      * @param filepath
      * @return
@@ -154,15 +157,17 @@ public class DataClearManager {
             getCustomCacheSize(file);
             size += dirSizeAll;
         }
-        return String.format("%.1f", size)+"M";
+        return String.format("%.1f", size) + "M";
     }
-//
+
+    //
     public static String getApplicationDataSize(Context context) {
-        return getApplicationDataSize(context,newsCacheurl);
+        return getApplicationDataSize(context, newsCacheurl);
     }
 
     /**
      * 删除某文件夹下的文件，如果传入参数是个文件，酱不做处理
+     *
      * @param directory
      */
     private static void deleteFilesByDirectory(File directory) {
@@ -181,6 +186,7 @@ public class DataClearManager {
 
     /**
      * 计算文件夹大小
+     *
      * @param dir
      * @return Mb
      */

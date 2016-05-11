@@ -38,10 +38,8 @@
             android:layout="@layout/preference_list_item"
             android:key="@string/version_update"
             android:title="检查更新"
-            android:summary="V1.0.0">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://fir.im/nbaplus"/>
+            android:summary="V0.0.2">
+
         </Preference>
 
     </PreferenceCategory>
